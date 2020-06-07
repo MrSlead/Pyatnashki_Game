@@ -7,14 +7,14 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button fx:id="startButton" focusTraversable="false" layoutX="373.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickStartButton" prefHeight="34.0" prefWidth="105.0" text="Начать">
+      <Button fx:id="startButton" focusTraversable="false" layoutX="373.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Начать">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <MenuButton fx:id="menuButton" focusTraversable="false" layoutX="268.0" layoutY="31.0" mnemonicParsing="false" onMouseReleased="#clickMenuItem" text="Размер">
+      <MenuButton fx:id="menuButton" focusTraversable="false" layoutX="268.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#clickMenuItem" text="Размер">
       </MenuButton>
-      <GridPane fx:id="gridPane" gridLinesVisible="true" layoutY="105.0" prefHeight="504.0" prefWidth="709.0" onMouseReleased="#clickGridItem">
-      </GridPane>
+      <GridPane fx:id="gridPane" layoutY="105.0" prefHeight="504.0" prefWidth="709.0">
+	  </GridPane>
    </children>
 </Pane>

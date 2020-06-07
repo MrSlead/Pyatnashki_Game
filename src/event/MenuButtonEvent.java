@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -13,19 +16,23 @@ import javafx.scene.text.Font;
 
 public class MenuButtonEvent {
 	private static List<Integer> randomNumberList;
+	private static int size;
+	private static int removeButtonIndex;
 	
-	public static void setText(MenuButton menuButton, GridPane gridPane) {
+	public static void setTextAndGenerateButton(MenuButton menuButton, GridPane gridPane) {
 		menuButton.getItems()
 		.stream()
 		.forEach(i -> i.setOnAction(e -> {
 			menuButton.setText(i.getText());
 			generateButton(menuButton, gridPane);
+			
+			GridItemEvent.moveButton(gridPane);
 		}));
 	}
 	
 	public static void generateButton(MenuButton menuButton, GridPane gridPane) {
 		if (!menuButton.getText().equals("Размер")) {
-			int size = Integer.parseInt(String.valueOf(menuButton.getText().charAt(0)));
+			size = Integer.parseInt(String.valueOf(menuButton.getText().charAt(0)));
 			randomNumberList = new ArrayList<>(
 					Stream.iterate(1, n -> n+1)
 					.limit(size*size-1)
@@ -43,11 +50,14 @@ public class MenuButtonEvent {
 					gridPane.add(b, j, i);
 				}
 			}
-			gridPane.getChildren().remove((int) (Math.random() * size*size));
+			removeButtonIndex = (int) (Math.random() * size*size);
+			gridPane.getChildren().get(removeButtonIndex).setVisible(false);
 			
 			for(int i = 0; i < gridPane.getChildren().size(); i++) {
 				Button button = (Button) gridPane.getChildren().get(i);
-				button.setText(String.valueOf(random(randomNumberList)));
+				if(button.isVisible() != false) {
+					button.setText(String.valueOf(random(randomNumberList)));
+				}
 			}
 		}
 	}
@@ -82,5 +92,13 @@ public class MenuButtonEvent {
 	
 	private static int random(List<Integer> list) {
 		return list.remove((int) (Math.random() * list.size()));
+	}
+	
+	public static int getSize() {
+		return size;
+	}
+	
+	public static int getRemoveButtonIndex() {
+		return removeButtonIndex;
 	}
 }
