@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #DFD0D4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button fx:id="startButton" focusTraversable="false" layoutX="373.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" onAction="#clickStartButton" text="Начать">
+      <Button fx:id="startButton" focusTraversable="false" layoutX="373.0" layoutY="22.0" mnemonicParsing="false" onAction="#clickStartButton" prefHeight="44.0" prefWidth="129.0" style="-fx-background-color: #A18189;" text="Начать" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold Italic" size="20.0" />
          </font>
+         <effect>
+            <DropShadow color="#a88686" height="25.447499999999998" radius="12.594375" width="26.93" />
+         </effect>
       </Button>
-      <MenuButton fx:id="menuButton" focusTraversable="false" layoutX="268.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#clickMenuItem" text="Размер">
-      </MenuButton>
+      <MenuButton fx:id="menuButton" focusTraversable="false" layoutX="268.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#clickMenuItem" style="-fx-background-color: #A18189;" text="Размер" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="1.63" specularConstant="0.0" specularExponent="40.0" surfaceScale="0.34">
+               <bumpInput>
+                  <Shadow color="#a17a7a" />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect></MenuButton>
       <GridPane fx:id="gridPane" layoutY="105.0" prefHeight="504.0" prefWidth="709.0">
 	  </GridPane>
-      <Text fx:id="stepText" layoutX="395.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шаг" visible="false" wrappingWidth="80">
+      <Text fx:id="stepText" fill="WHITE" layoutX="395.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шаг" visible="false" wrappingWidth="80">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold Italic" size="22.0" />
          </font>
+         <effect>
+            <DropShadow color="#0000006e" spread="0.41" />
+         </effect>
       </Text>
    </children>
 </Pane>
