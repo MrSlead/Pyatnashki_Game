@@ -7,7 +7,7 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button fx:id="startButton" focusTraversable="false" layoutX="373.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" text="Начать">
+      <Button fx:id="startButton" focusTraversable="false" layoutX="373.0" layoutY="22.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="105.0" onAction="#clickStartButton" text="Начать">
          <font>
             <Font size="20.0" />
          </font>
@@ -16,5 +16,10 @@
       </MenuButton>
       <GridPane fx:id="gridPane" layoutY="105.0" prefHeight="504.0" prefWidth="709.0">
 	  </GridPane>
+      <Text fx:id="stepText" layoutX="395.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шаг" visible="false" wrappingWidth="80">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

@@ -8,12 +8,14 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import application.Main;
 import event.ButtonEvent;
 import event.GridItemEvent;
 import event.MenuButtonEvent;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -23,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class MainController implements Initializable  {
 
@@ -30,46 +33,40 @@ public class MainController implements Initializable  {
 	private Pane rootPane;
 
 	@FXML
-	private GridPane gridPane;
+	public GridPane gridPane;
 
 	@FXML
 	private Button startButton;
 
 	@FXML
-	private MenuButton menuButton;
+	public MenuButton menuButton;
+	
+	@FXML
+	private Text stepText;
 
 	@FXML
 	private SplitMenuButton splitMenuButton;
 
 	private List<MenuItem> items;
 	
-	private final Timer timer = new Timer();
-    private TimerTask timerTask;
     
 	@FXML
 	private void clickStartButton(ActionEvent event) {
-
-        timerTask = new TimerTask() {
-
-            @Override
-            public void run() {
-                Platform.runLater(() -> {
-                	if(!(startButton.getTranslateY() == 400))
-                		startButton.setTranslateY(startButton.getTranslateY() + 1);
-                	else timer.cancel();
-                });
-            }
-        };
-        timer.schedule(timerTask, 0L, 5L);
-        
-        if(startButton.getTranslateY() == 400) timerTask.cancel();
-        System.out.println("clickStartButton");
-   
+		if(!gridPane.getChildren().isEmpty()) {
+			startButton.setVisible(false);
+			menuButton.setVisible(false);
+			stepText.setVisible(true);
+			
+			gridPane.getChildren()
+			.stream()
+			.forEach(item ->
+				((Button) item).setDisable(false));
+		}
 	}
 
 	@FXML
 	private void clickMenuItem() {
-		MenuButtonEvent.setTextAndGenerateButton(menuButton, gridPane);
+		MenuButtonEvent.setTextAndGenerateButton();
 	}
 	
 	@Override
