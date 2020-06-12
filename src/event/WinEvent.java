@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 public class WinEvent {
-	private static boolean isWin(Button [][] buttons, int size) {
+	public static boolean isWin(Button [][] buttons, int size) {
 		int count = 1;
 		for(int i = 0; i < size; i++) {
 			for(int j = 0; j < size; j++, count++) {
@@ -26,6 +26,7 @@ public class WinEvent {
 	
 	public static void win(Button [][] buttons, int size) {
 		if(isWin(buttons, size)) {
+			TimerEvent.stopTime();
 			JOptionPane.showMessageDialog(null, "Вы победили " + ButtonEvent.getStep() + " шаг/а/ов", "Победа", 2);
 			GridPane gridPane = (GridPane) Main.getFXMLNamespace().get("gridPane");
 			

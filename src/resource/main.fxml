@@ -45,5 +45,17 @@
             <DropShadow color="#0000004d" />
          </effect>
       </Pane>
+      <Pane fx:id="timePane" layoutX="177.0" layoutY="18.0" prefHeight="53.0" prefWidth="175.0" style="-fx-background-color: #A18189;" visible="false">
+         <children>
+            <Text fx:id="timeText" fill="WHITE" layoutX="-5.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00" textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <DropShadow color="#0000004d" />
+         </effect>
+      </Pane>
    </children>
 </Pane>

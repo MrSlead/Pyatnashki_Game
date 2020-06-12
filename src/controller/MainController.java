@@ -12,6 +12,7 @@ import application.Main;
 import event.ButtonEvent;
 import event.GridItemEvent;
 import event.MenuButtonEvent;
+import event.TimerEvent;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,6 +35,9 @@ public class MainController implements Initializable  {
 	
 	@FXML
 	private Pane textPane;
+	
+	@FXML
+	private Pane timePane;
 
 	@FXML
 	public GridPane gridPane;
@@ -46,6 +50,9 @@ public class MainController implements Initializable  {
 	
 	@FXML
 	private Text stepText;
+	
+	@FXML
+	private Text timeText;
 
 	@FXML
 	private SplitMenuButton splitMenuButton;
@@ -59,6 +66,8 @@ public class MainController implements Initializable  {
 			startButton.setVisible(false);
 			menuButton.setVisible(false);
 			textPane.setVisible(true);
+			timePane.setVisible(true);
+			TimerEvent.startTime();
 			
 			gridPane.getChildren()
 			.stream()
