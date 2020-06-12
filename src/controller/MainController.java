@@ -31,6 +31,9 @@ public class MainController implements Initializable  {
 
 	@FXML
 	private Pane rootPane;
+	
+	@FXML
+	private Pane textPane;
 
 	@FXML
 	public GridPane gridPane;
@@ -55,7 +58,7 @@ public class MainController implements Initializable  {
 		if(!gridPane.getChildren().isEmpty()) {
 			startButton.setVisible(false);
 			menuButton.setVisible(false);
-			stepText.setVisible(true);
+			textPane.setVisible(true);
 			
 			gridPane.getChildren()
 			.stream()

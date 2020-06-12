@@ -33,13 +33,17 @@
          </effect></MenuButton>
       <GridPane fx:id="gridPane" layoutY="105.0" prefHeight="504.0" prefWidth="709.0">
 	  </GridPane>
-      <Text fx:id="stepText" fill="WHITE" layoutX="395.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шаг" visible="false" wrappingWidth="80">
-         <font>
-            <Font name="System Bold Italic" size="22.0" />
-         </font>
+      <Pane fx:id="textPane" layoutX="368.0" layoutY="17.0" prefHeight="53.0" prefWidth="175.0" style="-fx-background-color: #A18189;" visible="false">
+         <children>
+            <Text fx:id="stepText" fill="WHITE" layoutX="-5.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Шаг" textAlignment="CENTER" wrappingWidth="186.0">
+               <font>
+                  <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Text>
+         </children>
          <effect>
-            <DropShadow color="#0000006e" spread="0.41" />
+            <DropShadow color="#0000004d" />
          </effect>
-      </Text>
+      </Pane>
    </children>
 </Pane>

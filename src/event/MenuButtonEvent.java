@@ -49,6 +49,14 @@ public class MenuButtonEvent {
 					b.setPrefWidth(300);
 					b.setFocusTraversable(false);
 					b.setFont(Font.font(45));
+					b.setStyle(""
+							+ "-fx-background-color:  #C99E9C; "
+							+ "-fx-border-width: 0.5; "
+							+ "-fx-border-color: black;"
+							+ "-fx-text-fill: white;"
+							+ "-fx-font-style: italic;"
+							+ "-fx-font-size: 40;"
+							+ "-fx-font-weight: bold;");
 					b.setDisable(true);
 					gridPane.add(b, j, i);
 				}
